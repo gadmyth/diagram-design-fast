@@ -1,4 +1,4 @@
-# agent-skills
+# diagram-design-fast
 
 自用的 Agent Skills 仓库。当前收录:
 
@@ -11,32 +11,36 @@
 
 ## 安装
 
+### 解压安装
+
 解压 / clone 后把 `skills/<name>` 软链到主机的 skills 目录。
 
 ```bash
-git clone https://github.com/<you>/agent-skills.git ~/code/agent-skills
+git clone https://github.com/gadmyth/diagram-design-fast.git ~/code/diagram-design-fast
 
 # Claude Code
 mkdir -p ~/.claude/skills
-ln -s ~/code/agent-skills/skills/diagram-design-fast ~/.claude/skills/diagram-design-fast
+ln -s ~/code/diagram-design-fast/skills/diagram-design-fast ~/.claude/skills/diagram-design-fast
 
 # 其他 Agent Skills 主机(按需要建目录)
 mkdir -p ~/.agents/skills ~/.cursor/skills ~/.codex/skills
-ln -s ~/code/agent-skills/skills/diagram-design-fast ~/.agents/skills/diagram-design-fast
-ln -s ~/code/agent-skills/skills/diagram-design-fast ~/.cursor/skills/diagram-design-fast
+ln -s ~/code/diagram-design-fast/skills/diagram-design-fast ~/.agents/skills/diagram-design-fast
+ln -s ~/code/diagram-design-fast/skills/diagram-design-fast ~/.cursor/skills/diagram-design-fast
 ```
 
 Windows 用目录联接代替软链:
 
 ```powershell
-New-Item -ItemType Junction -Path "$env:USERPROFILE\.claude\skills\diagram-design-fast" -Target "$env:USERPROFILE\code\agent-skills\skills\diagram-design-fast"
+New-Item -ItemType Junction -Path "$env:USERPROFILE\.claude\skills\diagram-design-fast" -Target "$env:USERPROFILE\code\diagram-design-fast\skills\diagram-design-fast"
 ```
 
-或者用 skills CLI(它认 `skills/<name>/SKILL.md` 这种布局,和上游 diagram-design 一样):
+### CLI直接安装
+
+用 skills CLI(它认 `skills/<name>/SKILL.md` 这种布局,和上游 diagram-design 一样):
 
 ```bash
-npx skills add <you>/agent-skills --skill diagram-design-fast --agent claude-code
-npx skills add <you>/agent-skills --skill diagram-design-fast -g     # 装到全局
+npx skills add gadmyth/diagram-design-fast --skill diagram-design-fast --agent claude-code
+npx skills add gadmyth/diagram-design-fast --skill diagram-design-fast -g     # 装到全局
 ```
 
 > skills CLI v1.7.x 要求 Node ≥ 22.20;skill 脚本本身只要 Node ≥ 18。
